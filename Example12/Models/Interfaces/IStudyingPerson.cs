@@ -12,15 +12,15 @@ namespace Example12.Models.Interfaces {
 		// However, in newer C# versions, method implementation in interfaces is allowed.
 
 		// The differences between classes and interfaces are:
-		// - Classes: Implement functionality.
-		// - Interfaces: Define functionality.
-		// - Sub-types can extend one, and only one, super-class.
+		// - Classes: Implement functionality (may just define functionality occasionally - i.e. abstract methods).
+		// - Interfaces: Define functionality (may implement functionality occasionally, in newer C# versions).
+		// - Sub-classes can extend one, and only one, super-class.
 		//   However, they can implement multiple interfaces.
 		// - Interfaces cannot be instantiated.
 
-		// The advantage of using interfaces is that it allows better abstraction models.
+		// The advantage of using interfaces is that it allows for better abstraction models.
 		// It allows for more flexible and customizeable abstraction models.
-		// Functionality can be treated as "plug-and-play" items.
+		// Functionality as "plug-and-play" features.
 
 		public void Study(); // <-- This is a method DECLARATION. It does not include a body.
 	}

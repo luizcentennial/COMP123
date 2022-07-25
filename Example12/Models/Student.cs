@@ -6,22 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Example12.Models {
-	public class Student : Person, IStudyingPerson {
+	public class Student : Person, IStudyingPerson, IWorkingPerson {
 		public StudentType Type { get; set; }
 
 		public void Study() {
-			System.Console.WriteLine("Study study study..."); // <-- No no no.
+			Console.WriteLine("Studying... "); // <-- No no no.
 		}
 
-		public override void Greet(string name) {
-			string greeting = this.CreateGreeting(name);
-
-			System.Console.WriteLine(greeting); // <-- No no no.
+		public void Work() {
+			Console.WriteLine("Working... "); // <-- No no no.
 		}
+	}
 
-		public enum StudentType {
-			Domestic,
-			International
-		}
+	public enum StudentType {
+		Domestic,
+		International
 	}
 }

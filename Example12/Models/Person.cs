@@ -6,29 +6,37 @@ using System.Threading.Tasks;
 
 namespace Example12.Models {
 	public class Person {
-		public string PersonID { get; private set; }
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
+		public string Name { get; set; }
+		public double Height { get; set; }
 		public DateTime DateOfBirth { get; set; }
+		public int Age {
+			get {
+				int age = DateTime.Now.Year - this.DateOfBirth.Year;
 
-		public Person() {
-			this.PersonID = Guid.NewGuid().ToString();
+				if (DateTime.Now.DayOfYear < this.DateOfBirth.DayOfYear) {
+					age--;
+				}
+
+				return age;
+			}
 		}
 
-		public override string ToString() {
-			return $"Person ID: {this.PersonID} \n" +
-				   $"Name: {this.FirstName} {this.LastName} \n" +
-				   $"Date of Birth: {this.DateOfBirth:d} ";
+		public Person() {
+			this.DateOfBirth = DateTime.Now;
+		}
+
+		public Person(DateTime dob) {
+			this.DateOfBirth = dob;
 		}
 
 		public void Speak() {
-			Console.WriteLine("Bla bla bla..."); // <- No no no.
+			Console.WriteLine("Bla bla bla..."); // No no no.
 		}
 
-		public virtual void Greet(string name) { // <-- The "virtual" keyword makes this method overridable.
+		public virtual void Greet(string name) {
 			string greeting = this.CreateGreeting(name);
 
-			Console.WriteLine(greeting); // <-- No no no.
+			Console.WriteLine(greeting); // No no no.
 		}
 
 		protected string CreateGreeting(string name) {
