@@ -35,24 +35,19 @@ namespace Example07.Models {
 
 		// Constructors
 		private Person() {
-			// Initialization logic.
+			this.Name = "Untitled";
 		}
 
 		private Person(string name) {
-			// Initialization logic.
 			this.Name = name;
 		}
 
 		private Person(string name, DateTime dob) : this(name) {
-			// Initialization logic.
 			this.DateOfBirth = dob;
 		}
 
 		// Methods
 		public static Person CreatePerson(string name, DateTime dob) {
-			// Complex intialization logic here.
-			// Since all constructors in this class are private, this method
-			// is the only choice for class instantiation.
 			Person person = new Person(name, dob);
 
 			return person;

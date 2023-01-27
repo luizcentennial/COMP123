@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Example06.Model {
+namespace Example06.Models {
 	public class Person {
 		// Fields
 		private DateTime _dateOfBirth;
@@ -35,24 +35,23 @@ namespace Example06.Model {
 
 		// Constructors
 		private Person() {
-			// This is NOT a default constructor.
+			this.Name = "Untitled";
 		}
 
 		private Person(string name) {
-			// Initialization logic.
 			this.Name = name;
 		}
 
-		private Person(string name, DateTime dob) : this(name) { 
-			// Initialization logic.
+		// A constructor can reference other constructors,
+		// so as to avoid code repetition.
+		private Person(string name, DateTime dob) : this(name) {
 			this.DateOfBirth = dob;
 		}
 
 		// Methods
 		public static Person CreatePerson(string name, DateTime dob) {
-			// Complex intialization logic here.
-			// Since all constructors in this class are private, this method
-			// is the only choice for class instantiation.
+			// Since all constructors are private, this
+			// method is the only choice for instantiation.
 			Person person = new Person(name, dob);
 
 			return person;

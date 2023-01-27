@@ -3,12 +3,12 @@
 namespace Example05.Models {
 	public class Person {
 		// Fields
-		private DateTime _dateOfBirth; // <-- DateOfBirth's value is stored here.
+		private DateTime _dateOfBirth;
 
 		// Properties
-		public string Name { get; set; } // Auto-implemented property
+		public string Name { get; set; }
 		public double Height { get; set; }
-		public DateTime DateOfBirth { // Full property
+		public DateTime DateOfBirth {
 			get {
 				return this._dateOfBirth;
 			}
@@ -21,7 +21,7 @@ namespace Example05.Models {
 				}
 			}
 		}
-		public int Age { // Auto-calculated property
+		public int Age {
 			get {
 				int age = DateTime.Now.Year - this.DateOfBirth.Year;
 
@@ -36,6 +36,9 @@ namespace Example05.Models {
 		// Constructors
 		public Person() { // <-- Parameterless constructor
 			// This is NOT a default constructor.
+			// Initialization logic.
+			// For example, setting default values:
+			this.Name = "Untitled";
 		}
 
 		public Person(string name) { // <-- Parameterized constructor

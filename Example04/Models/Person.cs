@@ -3,12 +3,12 @@
 namespace Example04.Models {
 	public class Person {
 		// Fields
-		private DateTime _dateOfBirth; // <-- DateOfBirth's value is stored here.
+		private DateTime _dateOfBirth;
 
 		// Properties
-		public string Name { get; set; } // Auto-implemented property
+		public string Name { get; set; } 
 		public double Height { get; set; }
-		public DateTime DateOfBirth { // Full property
+		public DateTime DateOfBirth {
 			get {
 				return this._dateOfBirth;
 			}
@@ -21,7 +21,7 @@ namespace Example04.Models {
 				}
 			}
 		}
-		public int Age { // Auto-calculated property
+		public int Age { 
 			get {
 				int age = DateTime.Now.Year - this.DateOfBirth.Year;
 
@@ -34,8 +34,8 @@ namespace Example04.Models {
 		}
 
 		// Constructors
-		// A default constructor is provided by C#,
+		// A default constructor is provided by C#
 		// when an instantiatable class does not explicitly define constructors.
-		// There is an invisible constructor here, we just don't see it. 
+		// There is an invisible constructor here, we just don't see it.
 	}
 }

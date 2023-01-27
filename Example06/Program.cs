@@ -1,4 +1,4 @@
-﻿using Example06.Model;
+﻿using Example06.Models;
 using System;
 
 namespace Example06 {
