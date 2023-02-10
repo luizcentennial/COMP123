@@ -9,13 +9,13 @@ namespace Example11.Services {
 				new Product("Electric Guitar", "A very nice electric guitar.", 12999),
 				new Product("Acoustic Guitar", "A very nice acoustic guitar.", 8999),
 				new Product("Keyboards", "A very nice keyboards.", 2999),
-				new Product("Drums set", "A very nice drums set.", 7999),
+				new Product("Drum set", "A very nice drums set.", 7999),
 				new Product("Bass Guitar", "A very nice bass guitar.", 4999),
 			};
 		}
 
 		public static void Create(Product obj) {
-			// Logic to store product in database.
+			// Logic to store a product in database.
 			Product[] newProducts = new Product[s_products.Length + 1];
 
 			s_products.CopyTo(newProducts, 0);
@@ -30,7 +30,7 @@ namespace Example11.Services {
 		}
 
 		public static Product Get(string guid) {
-			// Logic to retrieve product from database.
+			// Logic to retrieve a product from database.
 			foreach (var product in s_products) {
 				if (product.ProductGuid == guid) {
 					return product;
@@ -41,7 +41,7 @@ namespace Example11.Services {
 		}
 
 		public static void Update(Product obj) {
-			// Logic to update product in database.
+			// Logic to update a product in database.
 			Delete(obj);
 			Create(obj);
 		}
