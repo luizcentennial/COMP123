@@ -6,30 +6,28 @@ namespace Example12 {
 		static void Main(string[] args) {
 			// FILE IO:
 			// A set of techniques that can be used to read/write files from/to a hard-drive.
-
-			// Examples:
 			string root = @"C:\test\";
 
-			// Retrieving directories from root:
-			string[] folders = Directory.GetDirectories(root);
-
-			foreach (string folder in folders) {
-				Console.WriteLine(folder);
-			}
-
-			// Retrieving files from root:
-			string[] files = Directory.GetFiles(root);
-
-			foreach (string file in files) {
-				Console.WriteLine(file);
-			}
-
-			// Check if directory exists:
+			// Checking if directory exists:
 			if (Directory.Exists(root)) {
 				Console.WriteLine($"Folder '{root}' exists.");
+
+				// Retrieving directories from folder:
+				string[] folders = Directory.GetDirectories(root);
+
+				foreach (string folder in folders) {
+					Console.WriteLine(folder);
+				}
+
+				// Retrieving files from folder:
+				string[] files = Directory.GetFiles(root);
+
+				foreach (string file in files) {
+					Console.WriteLine(file);
+				}
 			}
 			else {
-				Console.WriteLine($"Folder '{root}' does not exist.");
+				Console.WriteLine($"Folder '{root}' does not.");
 			}
 		}
 	}

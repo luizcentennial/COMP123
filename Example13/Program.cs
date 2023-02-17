@@ -5,32 +5,33 @@ namespace Example13 {
 	class Program {
 		static void Main(string[] args) {
 			// FILE IO (cont.):
-
-			// Loading file contents:
 			string root = @"C:\test\";
 
+			// Programatically creating files:
+			for (int i = 0; i < 3; i++) {
+				string filename = $"file {i}.txt";
+
+				File.WriteAllText(root + filename, $"'{filename}' was created programatically.");
+			}
+
+			// Programatically reading files:
 			string[] files = Directory.GetFiles(root);
 
 			foreach (string file in files) {
-				string contents = File.ReadAllText(file);
+				string content = File.ReadAllText(file);
 
-				if (!string.IsNullOrWhiteSpace(contents)) {
-					Console.WriteLine(contents);
+				if (!string.IsNullOrWhiteSpace(content)) {
+					Console.WriteLine(content);
 					Console.WriteLine("-------------------- End of file. --------------------\n");
 				}
 			}
 
-			// Erasing file contents:
+			// Programatically deleting files:
 			foreach (string file in files) {
-				Console.WriteLine($"Erasing file '{file}'...");
-
-				File.WriteAllText(file, string.Empty);
-
-				Console.WriteLine("Done.");
+				if (File.Exists(file)) {
+					File.Delete(file);
+				}
 			}
-
-			// Creating files:
-			File.WriteAllText(root + "file 3.txt", "This file was created dynamically.");
 		}
 	}
 }

@@ -7,27 +7,28 @@ namespace Example14 {
 		static void Main(string[] args) {
 			// XML SERIALIZATION:
 			// A technique that can be used to represent data in a way that machines can easily understand.
+			Product product1 = new Product("Electric Guitar", "A very cool electric guitar.", 5399.99);
+			Product product2 = new Product("Bass Guitar", "A very cool bass guitar.", 5399.99);
 
-			// Creating product:
-			Product product = new Product("Guitar", "A very cool guitar.", 5399.99);
-			ProductService.Create(product);
+			// Creating a serialized Product instance:
+			ProductService.Create(product1);
+			ProductService.Create(product2);
 
-			// Loading a single product:
-			Product parsed = ProductService.Get(product.ProductGuid);
-			Console.WriteLine(parsed);
+			// Loading a single serialized Product instance:
+			Product product = ProductService.Get(product2.ProductGuid);
+			//Console.WriteLine(product);
 
-			// Loading all products:
-			Product[] allProducts = ProductService.Get();
+			// Updating a serialized Product instance:
+			product.Price = 3999.99;
+			ProductService.Update(product);
 
-			// Updating a product:
-			parsed.Price = 3999.99;
-			ProductService.Update(parsed);
+			// Deleting a serialized Product instance:
+			ProductService.Delete(product);
 
-			// Deleting a product:
-			ProductService.Delete(parsed);
+			// Loading all serialized Product instances:
+			Product[] products = ProductService.Get();
 
-			// Displaying products:
-			foreach (Product p in allProducts) {
+			foreach (Product p in products) {
 				Console.WriteLine(p);
 			}
 		}

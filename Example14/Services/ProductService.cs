@@ -4,27 +4,29 @@ using System.Xml.Serialization;
 
 namespace Example14.Services {
 	public static class ProductService {
-		private static string root;
-		private static XmlSerializer serializer;
+		private static string s_root;
+		private static XmlSerializer s_serializer;
 
 		static ProductService() {
-			root = @"C:\test\";
-			serializer = new XmlSerializer(typeof(Product));
+			s_root = @"C:\test\";
+			s_serializer = new XmlSerializer(typeof(Product));
 		}
 
 		public static void Create(Product obj) {
-			using (Stream stream = new FileStream($"{root}{obj.ProductGuid}.xml", FileMode.Create)) {
-				serializer.Serialize(stream, obj);
+			string filename = $"{obj.ProductGuid}.xml";
+
+			using (Stream stream = new FileStream(s_root + filename, FileMode.Create)) {
+				s_serializer.Serialize(stream, obj);
 			}
 		}
 
 		public static Product[] Get() {
-			string[] files = Directory.GetFiles(root, "*.xml");
+			string[] files = Directory.GetFiles(s_root, "*.xml");
 			Product[] products = new Product[files.Length];
 
 			for (int i = 0; i < products.Length; i++) {
 				using (Stream stream = new FileStream(files[i], FileMode.Open)) {
-					Product product = (Product)serializer.Deserialize(stream);
+					Product product = (Product)s_serializer.Deserialize(stream);
 
 					products[i] = product;
 				}
@@ -34,11 +36,17 @@ namespace Example14.Services {
 		}
 
 		public static Product Get(string guid) {
-			using (Stream stream = new FileStream($"{root}{guid}.xml", FileMode.Open)) {
-				Product product = (Product)serializer.Deserialize(stream);
+			string filename = $"{guid}.xml";
 
-				return product;
+			if (File.Exists(s_root + filename)) {
+				using (Stream stream = new FileStream(s_root + filename, FileMode.Open)) {
+					Product product = (Product)s_serializer.Deserialize(stream);
+
+					return product;
+				}
 			}
+
+			return null;
 		}
 
 		public static void Update(Product obj) {
@@ -47,10 +55,10 @@ namespace Example14.Services {
 		}
 
 		public static void Delete(Product obj) {
-			string file = $"{root}{obj.ProductGuid}.xml";
+			string filename = $"{obj.ProductGuid}.xml";
 
-			if (File.Exists(file)) {
-				File.Delete(file);
+			if (File.Exists(s_root + filename)) {
+				File.Delete(s_root + filename);
 			}
 		}
 	}
