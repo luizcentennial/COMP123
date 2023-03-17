@@ -11,29 +11,28 @@ namespace Example15 {
 			// below is the "sub-class". 
 			// In other words, super-classes are "parent" types
 			// that sub-classes ("child" types) extend with specialized features.
+			
+			Car car = new Car("BMW", "Z5", 2023, true);
 
-			Car car = new Car();
-			car.Make = "BMW";
-			car.Model = "Z5";
-			car.Year = 2023;
-			car.IsConvertible = true;
-
-			Truck truck = new Truck();
-			truck.Make = "Ford";
-			truck.Model = "F150";
-			truck.Year = 2023;
+			Truck truck = new Truck("Dodge", "RAM", 2023);
 			truck.IsExtendedCab = true;
 
 			// The line below throws an error.
-			//Vehicle vehicle = new Vehicle();
+			// Abstract classes cannot be instantiated!
+			//Vehicle vehicle = new Vehicle("", "", 0);
 
-			// Declaring objects polymorphically:
-			Vehicle another = new Truck();
-			another.Make = "Dodge";
-			another.Model = "RAM";
-			another.Year = 2023;
+			// POLYMORPHISM:
+			// Polymorphism is about acknowledging the hierarchical
+			// relationships that may exist between two or more types.
+			// In other words, if we assume a type `T` with a sub-type `S`,
+			// then Polymorphism allows us to treat an instance of type `S`
+			// as an instance of type `T`.
 
-			((Truck)another).IsExtendedCab = true;
+			// Polymorphic declaration:
+			Vehicle vehicle = new Car("BMW", "Z5", 2023, true);
+
+			// Polymorphic arrays:
+			Vehicle[] vehicles = { car, truck, vehicle };
 		}
 	}
 }

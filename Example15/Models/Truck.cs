@@ -2,8 +2,8 @@
 	public class Truck : Vehicle {
 		public bool IsExtendedCab { get; set; }
 
-		public Truck() {
-			this.SomePrivateMethod();
+		public Truck(string make, string model, uint year) : base(make, model, year) {
+
 		}
 	}
 }

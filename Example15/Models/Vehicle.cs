@@ -1,22 +1,14 @@
 ﻿namespace Example15.Models {
 	public abstract class Vehicle {
-		// Vehicle is an abstract class. That means it 
-		// cannot be instantiated.
-		// This is a restriction that may or may not exist,
-		// depending on technical specifications. However,
-		// it is not uncommon to find super-types that are
-		// marked abstract.
-
-		// Through Inheritance, all class members that are
-		// not private will be cascaded down to sub-types.
-		// This allows for maximum reusability and minimized
-		// code duplication.
-
 		public string Make { get; set; }
 		public string Model { get; set; }
 		public uint Year { get; set; }
 
-		public Vehicle() {
+		public Vehicle(string make, string model, uint year) {
+			this.Make = make;
+			this.Model = model;
+			this.Year = year;
+
 			this.SomePrivateMethod();
 		}
 
@@ -27,7 +19,7 @@
 		}
 
 		protected void SomePrivateMethod() { 
-			// Method implementation.
+			// Some logic.
 		}
 	}
 }
