@@ -1,5 +1,5 @@
 ﻿namespace Example17.Factories.Interfaces {
-	public interface IFactory<T, R> {
-		public T Create(R type);
+	public interface IFactory<TReturn, TType> {
+		public TReturn Create(TType type);
 	}
 }

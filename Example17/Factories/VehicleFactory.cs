@@ -3,7 +3,7 @@ using Example17.Models;
 
 namespace Example17.Factories {
 	public class VehicleFactory : IFactory<Vehicle, VehicleType> {
-		public Vehicle Create(VehicleType type) {
+		public Vehicle Create(VehicleType type) { 
 			switch (type) {
 				case VehicleType.Car:
 					Car car = new Car(null, null, 0, false);
@@ -14,7 +14,7 @@ namespace Example17.Factories {
 
 					return truck;
 				default:
-					throw new System.Exception($"Unknown type '{type}'.");
+					throw new System.Exception($"Type '{type}' unknown.");
 			}
 		}
 	}
