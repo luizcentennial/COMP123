@@ -1,0 +1,26 @@
+﻿<Window x:Class="Example26.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Example26"
+        mc:Ignorable="d"
+
+        Title="Example 26" 
+        Height="300" 
+        Width="300"
+        ResizeMode="CanMinimize">
+	<!--The properties above can be updated to change basic Window attributes.-->
+
+	<!--Properties 'HorizontalAlignment' and 'VerticalAlignment' of the Grid can help 
+    position controls per your design needs.-->
+	<Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+		<!--XAML controls (i.e. Labels, Buttons, etc) are placed inside of the 
+        parent Grid (More on grids later).-->
+		<Button Content="Click Me" Click="OnClick"/>
+
+		<!--'Click' is an event that is triggered when controls are clicked.
+        The button above executes a method (event handler) called 'OnClick' whenever
+        it's clicked. Method OnClick is defined in the code-behind (MainWindow.xaml.cs).-->
+	</Grid>
+</Window>

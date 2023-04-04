@@ -1,0 +1,39 @@
+﻿<Window x:Class="Example27.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Example27"
+        mc:Ignorable="d"
+        Title="Example 27" 
+        Height="400" 
+        Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <!--Row definitions-->
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="30"/>
+		</Grid.RowDefinitions>
+
+        <!--Form controls-->
+		<Label Content="Input your name below:" Grid.Row="0"/>
+
+		<!--To access a control in the code-behind, it must be assigned an identifier
+		via property 'Name'.-->
+		<TextBox Name="txtName" Grid.Row="1" Height="20"/>
+
+		<!--The property 'Margin' can be set either as one single value, or a group of 
+		multiple space-separated values. One single value sets an equal margin across
+		all 4 sides of the control. Multiple values set the margin for each side individually.
+
+		In the example below, the margin is set as follows: 
+		
+		- Margin left: 0px, 
+		- Margin top: 10px, 
+		- Margin right: 0px, and 
+		- Margin bottom: 0px.-->
+		<Button Content="Sign In" Grid.Row="2" Margin="0 10 0 0" Click="OnSignIn"/>
+	</Grid>
+</Window>
