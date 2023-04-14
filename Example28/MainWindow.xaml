@@ -7,9 +7,9 @@
         mc:Ignorable="d"
 
         Title="Banking App" 
-        Height="500" 
-        Width="1000"
-        ResizeMode="CanMinimize">
+		Height="550" 
+		Width="1000"
+		ResizeMode="CanMinimize">
     <!--Outer Grid-->
     <Grid Margin="5">
 		<Grid.RowDefinitions>
@@ -22,18 +22,18 @@
 		</Grid.ColumnDefinitions>
 
         <!--Accounts Pane-->
-		<Grid Grid.Row="0" Grid.Column="0" Margin="0 0 5 0">
+		<Grid Grid.Row="0" Grid.Column="0">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="*"/>
 				<RowDefinition Height="4*"/>
 			</Grid.RowDefinitions>
 
 			<Label Content="Accounts" FontWeight="Bold" Grid.Row="0"/>
-			<DataGrid Name="dataAccounts" Grid.Row="1"/>
+			<DataGrid Grid.Row="1"/>
 		</Grid>
 
 		<!--Account Creation Pane-->
-		<Grid Grid.Row="1" Grid.Column="0" Margin="0 0 5 0">
+		<Grid Grid.Row="1" Grid.Column="0">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="*"/>
 				<RowDefinition Height="*"/>
@@ -49,7 +49,7 @@
 
 			<StackPanel Margin="0 5 5 0" Grid.Row="0" Grid.Column="0">
 				<Label Content="Account Number"/>
-				<TextBox />
+				<TextBox/>
 			</StackPanel>
 
 			<StackPanel Margin="5 5 0 0" Grid.Row="0" Grid.Column="1">
@@ -63,12 +63,12 @@
 
 			<StackPanel Margin="0 5 5 0" Grid.Row="1" Grid.Column="0">
 				<Label Content="First Name"/>
-				<TextBox />
+				<TextBox/>
 			</StackPanel>
 
 			<StackPanel Margin="5 5 0 0" Grid.Row="1" Grid.Column="1">
 				<Label Content="Last Name"/>
-				<TextBox />
+				<TextBox/>
 			</StackPanel>
 
 			<StackPanel Margin="0 5 5 0" Grid.Row="2" Grid.Column="0">
@@ -78,30 +78,30 @@
 
 			<StackPanel Margin="5 5 0 0" Grid.Row="2" Grid.Column="1">
 				<Label Content="Street and Number"/>
-				<TextBox />
+				<TextBox/>
 			</StackPanel>
 
 			<StackPanel Margin="0 5 5 0" Grid.Row="3" Grid.Column="0">
 				<Label Content="Complement"/>
-				<TextBox />
+				<TextBox/>
 			</StackPanel>
 
 			<StackPanel Margin="5 5 0 0" Grid.Row="3" Grid.Column="1">
 				<Label Content="City"/>
-				<TextBox />
+				<TextBox/>
 			</StackPanel>
 
 			<StackPanel Margin="0 5 5 0" Grid.Row="4" Grid.Column="0">
 				<Label Content="Province"/>
-				<TextBox />
+				<TextBox/>
 			</StackPanel>
 
 			<StackPanel Margin="5 5 0 0" Grid.Row="4" Grid.Column="1">
 				<Label Content="Postal Code"/>
-				<TextBox />
+				<TextBox/>
 			</StackPanel>
 
-			<Button Content="Create Account" Margin="0 5 5 0" Grid.Row="5" Grid.Column="0"/>
+			<Button Content="Create" Margin="0 5 5 0" Grid.Row="5" Grid.Column="0"/>
 			<Button Content="Reset" Margin="5 5 0 0" Grid.Row="5" Grid.Column="1"/>
 		</Grid>
     </Grid>

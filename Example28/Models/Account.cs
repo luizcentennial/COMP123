@@ -6,14 +6,14 @@ namespace Example28.Models {
 		public string AccountID { get; set; }
 		public string AccountNumber { get; set; }
 		public Customer Customer { get; set; }
-		public AccountType Type { get; set; }
 		public List<Transaction> Transactions { get; set; }
+		public AccountType Type { get; set; }
 		public decimal Balance { 
 			get {
 				decimal total = 0;
 
 				foreach (Transaction transaction in this.Transactions) {
-					if (transaction.Type == TransactionType.Credit) {
+					if (transaction.Type == Transaction.TransactionType.Credit) {
 						total += transaction.Value;
 					}
 					else {
@@ -28,6 +28,12 @@ namespace Example28.Models {
 		public Account() {
 			this.AccountID = Guid.NewGuid().ToString();
 			this.Transactions = new List<Transaction>();
+		}
+
+		public enum AccountType {
+			Checking,
+			Savings,
+			Investment
 		}
 	}
 }

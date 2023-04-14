@@ -26,5 +26,10 @@ namespace Example28.Models {
 			this.TransactionID = Guid.NewGuid().ToString();
 			this.ProcessedOn = DateTime.Now;
 		}
+
+		public enum TransactionType {
+			Debit,
+			Credit
+		}
 	}
 }
