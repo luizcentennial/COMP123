@@ -4,16 +4,23 @@ using System;
 namespace Example02 {
 	class Program {
 		static void Main(string[] args) {
+			// Instantiating the class
 			Person person = new Person();
+
+			// Initializing properties
 			person.Name = "John";
 			person.Height = 1.85; // meters
 			person.DateOfBirth = new DateTime(1985, 7, 15);
+			
+			// The line below throws an error. Age is readonly (auto-calculated).
+			//person.Age = 18;
 
-			// The line below throws an error.
-			// Age is auto-calculated, therefore, cannot be set to - it's read only.
-			//person.Age = 20;
-
-			Console.WriteLine($"John's age is {person.Age}.");
+			// Retrieving property values
+			Console.WriteLine("Person object successfully created!");
+			Console.WriteLine($"Name: {person.Name}");
+			Console.WriteLine($"Height: {person.Height} m");
+			Console.WriteLine($"Date of birth: {person.DateOfBirth:MM-dd-yyyy}");
+			Console.WriteLine($"Age: {person.Age}");
 		}
 	}
 }
