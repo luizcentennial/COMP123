@@ -3,76 +3,61 @@ using System.Linq;
 
 namespace Example25 {
 	internal class Program {
-		static void Main(string[] args) {
+		static void Main(string[] args)
+		{
 			// LINQ:
 			// Language-Integrated Query (LINQ) is a tool that provides 
-			// query capabilities to the C# language.
+			// query capabilities to C# data structures.
 
 			// Basic Functions:
-			
+
 			// Map:
 			//
-			// Mapping functions manipulate the
-			// original elements in a given dataset, creating a whole
-			// new set with the results of the operation.
+			// Mapping functions manipulate the elements in a given set, returning
+			// a new set with the modified elements.
 			//
-			// Example: [ 1, 2, 3, 4, 5 ] --Filter--> [ 2, 4 ]
+			// Example: [ 1, 2, 3, 4, 5 ] -- Map (double each element) --> [ 2, 4, 6, 8, 10 ]
 
 			// Filter:
 			//
-			// Filter functions filter out elements from
-			// a given dataset based on a Boolean condition.
-			// The subset below includes elements for which the specified
+			// Filter functions remove elements from a given set based on a
+			// Boolean condition.
+			// The resulting subset includes elements for which the specified
 			// Boolean expression returns true.
 			//
-			// Example: [ 1, 2, 3, 4, 5 ] --Filter--> [ 2, 4 ]
+			// Example: [ 1, 2, 3, 4, 5 ] -- Filter (number is even) --> [ 2, 4 ]
 
 			// LINQ allows for two syntax styles: Query and Method.
 
 			int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-			// Query Syntax: Resembles SQL queries.
+			// Map: Using the Query syntax.
+			var subset = from number in numbers select number * 2;
 
-			// Map:
-			var subset = from number in numbers
-						 select number * 2; // Map function is integrated to the query
+			DisplayArray(numbers);
+			DisplayArray(subset);
 
-			foreach (int number in subset) {
-				Console.Write($"{number} ");
-			}
+			// Map: Using the Method syntax.
+			subset = numbers.Select(number => number * 2);
+			DisplayArray(subset);
 
-			Console.WriteLine();
 
-			// Filter:
-			subset = from number in numbers
-					 where number > 5 // Filter clause is integrated to the query
-					 select number;
+			// Filter: Using the Query syntax.
+			subset = from number in numbers where number > 5 select number;
+			DisplayArray(subset);
 
-			foreach (int number in subset) {
-				Console.Write($"{number} ");
-			}
+			// Side note: It is possible to map and filter in the same query.
+			// Example:
+			//subset = from number in numbers where number > 5 select number * 2;
 
-			Console.WriteLine();
+			// Filter: Using the Method syntax.
+			subset = numbers.Where(number => number > 5);
+			DisplayArray(subset);
+		}
 
-			// Method Syntax: Concise and fluent. Uses lambda expressions.
-
-			// Map:
-			subset = numbers.Select(number => number * 2); // Maps exactly as above, but different syntax.
-
-			foreach (int number in subset) {
-				Console.Write($"{number} ");
-			}
-
-			Console.WriteLine();
-
-			// Filter:
-			subset = numbers.Where(number => number > 5); // Filters exactly as above, but different syntax.
-
-			foreach (int number in subset) {
-				Console.Write($"{number} ");
-			}
-
-			Console.WriteLine();
+		public static void DisplayArray<T>(IEnumerable<T> array)
+		{
+			Console.WriteLine(string.Join(", ", array));
 		}
 	}
 }
