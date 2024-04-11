@@ -5,26 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Example27"
         mc:Ignorable="d"
+        
         Title="Example 27" 
-        Height="400" 
-        Width="400"
+        Height="200" 
+        Width="300"
+        ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid HorizontalAlignment="Center" 
+          VerticalAlignment="Center"
+          Width="250">
+        
         <!--Row definitions-->
-		<Grid.RowDefinitions>
-			<RowDefinition Height="30"/>
-			<RowDefinition Height="30"/>
-			<RowDefinition Height="30"/>
-		</Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
         <!--Form controls-->
-		<Label Content="Input your name below:" Grid.Row="0"/>
+        <Label Content="Username:"
+               Grid.Row="0"/>
 
-		<!--To access a control in the code-behind, it must be assigned an identifier
-		via property 'Name'.-->
-		<TextBox Name="txtName" Grid.Row="1" Height="20"/>
+        <!--To access a control in the code-behind, it must be assigned an identifier.
+		We do it by initializing property 'Name'.-->
+        <TextBox Name="txtUsername" Grid.Row="1"/>
 
-		<!--The property 'Margin' can be set either as one single value, or a group of 
+        <Label Content="Password:"
+               Grid.Row="2"/>
+
+        <PasswordBox Name="pwdPassword" Grid.Row="3"/>
+
+        <!--The property 'Margin' can be set either as one single value, or a group of 
 		multiple space-separated values. One single value sets an equal margin across
 		all 4 sides of the control. Multiple values set the margin for each side individually.
 
@@ -34,6 +47,10 @@
 		- Margin top: 10px, 
 		- Margin right: 0px, and 
 		- Margin bottom: 0px.-->
-		<Button Content="Sign In" Grid.Row="2" Margin="0 10 0 0" Click="OnSignIn"/>
-	</Grid>
+        
+        <Button Content="Sign In"
+                Grid.Row="4"
+                Margin="0 10 0 0"
+                Click="OnSignIn"/>
+    </Grid>
 </Window>
